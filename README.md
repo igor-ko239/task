@@ -2,6 +2,7 @@
 
 This project contains WebdriverIO tests for the SauceDemo negative and edge case flow.
 
+
 ## Task
 
 "Negative & Edge Case" Flow
@@ -44,52 +45,37 @@ Documentation: Add a README.md explaining how to run the tests and generate the 
 
 ## Project structure
 
-- test/specs/sauceDemo.spec.js — main test cases
-- test/pageobjects/LoginPage.js — login page object
-- test/pageobjects/InventoryPage.js — inventory and menu page object
-- test/pageobjects/CheckoutPage.js — checkout page object
-- wdio.conf.js — WebdriverIO configuration for Firefox and Edge
+- `wdio.conf.js` — WebdriverIO configuration
+- `src/pages/` — page objects for SauceDemo screens
+- `src/specs/test.spec.js` — test scenarios
 
 ## Prerequisites
 
-Install the following on the machine before running the suite:
+- Node.js installed
+- `npm install` executed in project root
+- Firefox and Edge installed locally
 
-- Node.js and npm
-- Firefox and Microsoft Edge browsers
-- Selenium standalone service and browser drivers
-
-## Manual setup
-
-Once npm access is available, install dependencies from the project folder:
+## Install dependencies
 
 ```bash
 npm install
 ```
 
-## Run the tests
-
-Run the full suite:
+## Run tests
 
 ```bash
 npm test
 ```
 
-Run only Firefox:
+## Run tests only on firefox
 
 ```bash
 npm run test:firefox
 ```
 
-Run only Edge:
+## Notes
 
-```bash
-npm run test:edge
-```
-
-## Generate a report
-
-The configuration writes JUnit XML reports to the reports folder.
-
-```bash
-npm run report
-```
+- Uses Page Object Model (POM)
+- Uses CSS selectors only
+- Avoids hard-coded `pause()` and `sleep()` commands
+- Waits for elements using WebdriverIO `waitFor*` commands
