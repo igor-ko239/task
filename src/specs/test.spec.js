@@ -9,21 +9,21 @@ describe('SauceDemo Negative & Edge Case Flow', () => {
     });
 
     describe('UC-1 Form Validation (Negative Testing)', () => {
-        it('UC-1: Attempt to login with empty Username and Password and verify error "Username is required"', async () => {
+        it('Login page is opened when the form with empty username and password is submitted, then error "Epic sadface: Username is required" is expected', async () => {
             await LoginPage.login('', '');
 
             await expect(LoginPage.errorMessage).toBeExisting();
             await expect(LoginPage.errorMessage).toHaveText('Epic sadface: Username is required');
         });
 
-        it('UC-1: Attempt to login with Username only and verify error "Password is required"', async () => {
+        it('Login page is opened when the form with username standard_user and no password is submitted, then error "Epic sadface: Password is required" is expected', async () => {
             await LoginPage.login('standard_user', '');
 
             await expect(LoginPage.errorMessage).toBeExisting();
             await expect(LoginPage.errorMessage).toHaveText('Epic sadface: Password is required');
         });
 
-        it('UC-1: Login with standard_user, go to Checkout, and continue without postal code to verify checkout error', async () => {
+        it('Inventory is reached when standard_user logs in and the cart is opened, then checkout is continued without a postal code and error "Error: Postal Code is required" is expected', async () => {
             await LoginPage.login('standard_user', 'secret_sauce');
             await InventoryPage.cartIcon.waitForDisplayed({ timeout: 10000 });
             await InventoryPage.cartIcon.click();
@@ -37,7 +37,7 @@ describe('SauceDemo Negative & Edge Case Flow', () => {
     });
 
     describe('UC-2 Handling Latency (Wait Strategies)', () => {
-        it('UC-2: Login with performance_glitch_user, handle built-in delay, reset app state via burger menu, and logout', async () => {
+        it('Inventory page is loaded when performance_glitch_user logs in, then app state is reset via the burger menu and logout is performed, and returning to the login page is expected', async () => {
             await LoginPage.login('performance_glitch_user', 'secret_sauce');
 
             await InventoryPage.cartIcon.waitForDisplayed({ timeout: 20000 });
