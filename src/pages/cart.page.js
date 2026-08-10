@@ -1,9 +1,11 @@
 class CartPage {
+    CHECKOUT_BUTTON_LOCATOR = '#checkout';
+
     get checkoutButton() {
-        return $('#checkout');
+        return $(this.CHECKOUT_BUTTON_LOCATOR);
     }
 
-    async open() {
+    async proceedToCheckout() {
         await this.checkoutButton.waitForDisplayed({ timeout: 10000 });
         await this.checkoutButton.click();
     }

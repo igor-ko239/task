@@ -1,18 +1,23 @@
 class InventoryPage {
+    BURGER_MENU_BUTTON_LOCATOR = '#react-burger-menu-btn';
+    RESET_APP_STATE_LINK_LOCATOR = '#reset_sidebar_link';
+    LOGOUT_LINK_LOCATOR = '#logout_sidebar_link';
+    CART_ICON_LOCATOR = '.shopping_cart_link';
+
     get burgerMenuButton() {
-        return $('#react-burger-menu-btn');
+        return $(this.BURGER_MENU_BUTTON_LOCATOR);
     }
 
     get resetAppStateLink() {
-        return $('#reset_sidebar_link');
+        return $(this.RESET_APP_STATE_LINK_LOCATOR);
     }
 
     get logoutLink() {
-        return $('#logout_sidebar_link');
+        return $(this.LOGOUT_LINK_LOCATOR);
     }
 
     get cartIcon() {
-        return $('.shopping_cart_link');
+        return $(this.CART_ICON_LOCATOR);
     }
 
     async open() {

@@ -28,7 +28,7 @@ describe('SauceDemo Negative & Edge Case Flow', () => {
             await InventoryPage.cartIcon.waitForDisplayed({ timeout: 10000 });
             await InventoryPage.cartIcon.click();
 
-            await CartPage.open();
+            await CartPage.proceedToCheckout();
             await CheckoutPage.continueCheckout('First', 'Last', '');
 
             await expect(CheckoutPage.errorMessage).toBeExisting();

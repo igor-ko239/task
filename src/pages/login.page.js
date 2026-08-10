@@ -1,18 +1,23 @@
 class LoginPage {
+    USERNAME_INPUT_LOCATOR = '#user-name';
+    PASSWORD_INPUT_LOCATOR = '#password';
+    LOGIN_BUTTON_LOCATOR = '#login-button';
+    ERROR_MESSAGE_LOCATOR = '[data-test="error"]';
+
     get usernameInput() {
-        return $('#user-name');
+        return $(this.USERNAME_INPUT_LOCATOR);
     }
 
     get passwordInput() {
-        return $('#password');
+        return $(this.PASSWORD_INPUT_LOCATOR);
     }
 
     get loginButton() {
-        return $('#login-button');
+        return $(this.LOGIN_BUTTON_LOCATOR);
     }
 
     get errorMessage() {
-        return $('[data-test="error"]');
+        return $(this.ERROR_MESSAGE_LOCATOR);
     }
 
     async open() {

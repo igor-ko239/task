@@ -1,22 +1,28 @@
 class CheckoutPage {
+    FIRST_NAME_INPUT_LOCATOR = '#first-name';
+    LAST_NAME_INPUT_LOCATOR = '#last-name';
+    POSTAL_CODE_INPUT_LOCATOR = '#postal-code';
+    CONTINUE_BUTTON_LOCATOR = '#continue';
+    ERROR_MESSAGE_LOCATOR = '[data-test="error"]';
+
     get firstNameInput() {
-        return $('#first-name');
+        return $(this.FIRST_NAME_INPUT_LOCATOR);
     }
 
     get lastNameInput() {
-        return $('#last-name');
+        return $(this.LAST_NAME_INPUT_LOCATOR);
     }
 
     get postalCodeInput() {
-        return $('#postal-code');
+        return $(this.POSTAL_CODE_INPUT_LOCATOR);
     }
 
     get continueButton() {
-        return $('#continue');
+        return $(this.CONTINUE_BUTTON_LOCATOR);
     }
 
     get errorMessage() {
-        return $('[data-test="error"]');
+        return $(this.ERROR_MESSAGE_LOCATOR);
     }
 
     async continueCheckout(firstName = '', lastName = '', postalCode = '') {
